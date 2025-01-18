@@ -1,19 +1,59 @@
-function UserForm(){
-    return (
-        <article>
-            <p>Aktivitets Namn</p>
-            <input type="text" />
+function UserForm(props) {
+  const { createActivity } = props;
 
+  // Define local variables to hold the user input
+  let activityName = "";
+  let activityDescription = "";
+  let activityDate = "";
+  let activityLocation = "";
 
-            <p>Aktivitets Plats</p>
-            <input type="text" />
+  // Handle button click to create a new activity
+  const handleBtnClick = () => {
+    console.log("Button clicked");
 
-            <p>Aktivitets Beskrivning</p>
-            <input type="text" />
+    // Create a new Activity object
+    const newActivity = {
+      name: activityName,
+      description: activityDescription,
+      location: activityLocation,
+      date: activityDate,
+    };
 
-            <button>Spara Aktivitet</button>
-        </article>
-    )
+    // Call the createActivity function passed from the parent
+    createActivity(newActivity);
+  };
 
+  return (
+    <article>
+      {/* inputs with onChange event to capture the userInput and passing the input.value as an object key value  */}
+      <p>Aktivitets Namn</p>
+      <input
+        type="text"
+        onChange={(event) => (activityName = event.target.value)}
+      />
+
+      <p>Aktivitets Plats</p>
+      <input
+        type="text"
+        onChange={(event) => (activityLocation = event.target.value)}
+      />
+
+      <p>Aktivitets Beskrivning</p>
+      <input
+        type="text"
+        onChange={(event) => (activityDescription = event.target.value)}
+      />
+
+      <p>Aktivitets Datum</p>
+      <input
+        type="text"
+        onChange={(event) => (activityDate = event.target.value)}
+      />
+
+      {/* Button to save the activity */}
+      <button onClick={handleBtnClick}>Spara Aktivitet</button>
+    </article>
+  );
 }
-export default UserForm
+
+export default UserForm;
