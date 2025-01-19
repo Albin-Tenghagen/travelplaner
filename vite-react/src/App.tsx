@@ -7,16 +7,22 @@ import "./App.css";
 
 function App() {
   // Initialize an empty array for activities
-  const ActivityArray = [];
-
-  // Activity interface to outline the Activity object
-  interface Activity {
-    id: number;
-    name: string;
-    description?: string;
-    date: string;
-    location: string;
-  }
+  const ActivityArray = [
+    {
+      id: 1,
+      name: "Albin",
+      description: "string;",
+      location: "string",
+      date: "string",
+    },
+    {
+      id: 2,
+      name: "Albin",
+      description: "string;",
+      location: "string",
+      date: "string",
+    },
+  ];
 
   // Function to create and add a new activity to the ActivityArray
   function createActivity(newActivity: {
@@ -40,16 +46,22 @@ function App() {
     console.log("Activity created", Activity);
     console.log("Array updated", ActivityArray);
   }
-
   // Render the app with a header, main content, aside section, and footer
   return (
     <>
       <Header />
       <Main createActivity={createActivity} />
-      <Aside />
+      <Aside ActivityArray={ActivityArray} />
       <Footer />
     </>
   );
 }
-
+// Activity interface to outline the Activity object, it was moved outside the function App to be exportable to Aside
+export interface Activity {
+  id: number;
+  name: string;
+  description?: string;
+  date: string;
+  location: string;
+}
 export default App;

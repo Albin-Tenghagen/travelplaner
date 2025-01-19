@@ -1,11 +1,15 @@
 import AktivityItem from "./AktivityItem";
+import { Activity } from "../../App";
 
-function AktivityList() {
+function AktivityList({ ActivityArray }: { ActivityArray: Activity[] }) {
+  console.log("props from Aside", ActivityArray);
   return (
     <section>
       <h4>Sparade Aktiviteter</h4>
       <section>
-        <AktivityItem />
+        {ActivityArray.map((Activity) => (
+          <AktivityItem key={Activity.id} {...Activity} />
+        ))}
       </section>
     </section>
   );
