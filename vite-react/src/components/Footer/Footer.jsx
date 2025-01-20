@@ -1,10 +1,9 @@
-function Footer(){
-    return (
-        <footer>
-            <h1>Footer</h1>
-
-        </footer>
-    )
+function Footer() {
+  return (
+    <footer>
+      <h4>Planerings Portal</h4>
+    </footer>
+  );
 }
 
-export default Footer
+export default Footer;

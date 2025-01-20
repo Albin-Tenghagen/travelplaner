@@ -1,29 +1,14 @@
+import { useState } from "react";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import Main from "./components/Main/Main";
 import Aside from "./components/Aside/Aside";
 
 import "./App.css";
-import { useState } from "react";
-
+// * The main App component that manages activities and renders the application layout.
 function App() {
-  // Initialize an empty array for activities
-  const [ActivityArray, setActivityArray] = useState([
-    {
-      id: 1,
-      name: "Albin",
-      description: "string;",
-      location: "string",
-      date: "string",
-    },
-    {
-      id: 2,
-      name: "Albin",
-      description: "string;",
-      location: "string",
-      date: "string",
-    },
-  ]);
+  // State to store the array of activities.
+  const [ActivityArray, setActivityArray] = useState([]);
 
   // Function to create and add a new activity to the ActivityArray
   function createActivity(newActivity: {
@@ -41,13 +26,13 @@ function App() {
       location: newActivity.location,
     };
 
-    // Push the new activity into the array
+    // Update the state with new activity
     setActivityArray([...ActivityArray, Activity]);
 
     console.log("Activity created", Activity);
     console.log("Array updated", ActivityArray);
   }
-  // Render the app with a header, main content, aside section, and footer
+
   return (
     <>
       <Header />

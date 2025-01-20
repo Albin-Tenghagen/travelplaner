@@ -1,12 +1,12 @@
 import FormHeading from "./FormHeading";
 import UserForm from "./UserForm";
-
+// The main component that displays a list of activities
+//* @param @param {Function} props.createActivity - Function to create and add a new activity.
 function Main(props) {
   const { createActivity } = props;
 
   return (
     <main>
-      <h2>Main</h2>
       <FormHeading />
       <UserForm createActivity={createActivity} />
     </main>

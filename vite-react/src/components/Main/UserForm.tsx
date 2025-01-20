@@ -1,3 +1,7 @@
+//  The UserForm component that allows users to input details for a new activity.
+//  * @param {Object} props - The props object.
+//  * @param {Function} props.createActivity - Function to create and add a new activity.
+
 function UserForm(props) {
   const { createActivity } = props;
 
@@ -17,7 +21,7 @@ function UserForm(props) {
       !activityLocation ||
       !activityDate
     ) {
-      alertMessage = "Alla fält måste fyllas i ";
+      alertMessage = "Alla fält måste fyllas i!";
       document.getElementById("alertMessage").textContent = alertMessage;
       return;
     }
@@ -38,27 +42,27 @@ function UserForm(props) {
 
   return (
     <article>
-      {/* inputs with onChange event to capture the userInput and passing the input value as an object key value  */}
+      {/* inputs with onChange event to capture the userInput and passing the input value to the localvariables */}
       <p id="alertMessage" style={{ color: "red" }}></p>
-      <p>Aktivitets Namn</p>
+      <p>Aktivitets Namn:</p>
       <input
         type="text"
         onChange={(event) => (activityName = event.target.value)}
       />
 
-      <p>Aktivitets Plats</p>
+      <p>Aktivitets Plats:</p>
       <input
         type="text"
         onChange={(event) => (activityLocation = event.target.value)}
       />
 
-      <p>Aktivitets Beskrivning</p>
+      <p>Aktivitets Beskrivning:</p>
       <input
         type="text"
         onChange={(event) => (activityDescription = event.target.value)}
       />
 
-      <p>Aktivitets Datum</p>
+      <p>Aktivitets Datum:</p>
       <input
         type="text"
         onChange={(event) => (activityDate = event.target.value)}
