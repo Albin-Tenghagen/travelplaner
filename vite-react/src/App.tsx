@@ -4,10 +4,11 @@ import Main from "./components/Main/Main";
 import Aside from "./components/Aside/Aside";
 
 import "./App.css";
+import { useState } from "react";
 
 function App() {
   // Initialize an empty array for activities
-  const ActivityArray = [
+  const [ActivityArray, setActivityArray] = useState([
     {
       id: 1,
       name: "Albin",
@@ -22,7 +23,7 @@ function App() {
       location: "string",
       date: "string",
     },
-  ];
+  ]);
 
   // Function to create and add a new activity to the ActivityArray
   function createActivity(newActivity: {
@@ -41,7 +42,7 @@ function App() {
     };
 
     // Push the new activity into the array
-    ActivityArray.push(Activity);
+    setActivityArray([...ActivityArray, Activity]);
 
     console.log("Activity created", Activity);
     console.log("Array updated", ActivityArray);

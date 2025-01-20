@@ -7,10 +7,23 @@ function UserForm(props) {
   let activityDate = "";
   let activityLocation = "";
 
+  let alertMessage: string = "";
   // Handle button click to create a new activity
   const handleBtnClick = () => {
     console.log("Button clicked");
+    if (
+      !activityName ||
+      !activityDescription ||
+      !activityLocation ||
+      !activityDate
+    ) {
+      alertMessage = "Alla fält måste fyllas i ";
+      document.getElementById("alertMessage").textContent = alertMessage;
+      return;
+    }
 
+    alertMessage = "";
+    document.getElementById("alertMessage").textContent = alertMessage;
     // Create a new Activity object
     const newActivity = {
       name: activityName,
@@ -25,7 +38,8 @@ function UserForm(props) {
 
   return (
     <article>
-      {/* inputs with onChange event to capture the userInput and passing the input.value as an object key value  */}
+      {/* inputs with onChange event to capture the userInput and passing the input value as an object key value  */}
+      <p id="alertMessage" style={{ color: "red" }}></p>
       <p>Aktivitets Namn</p>
       <input
         type="text"
